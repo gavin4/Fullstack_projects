@@ -13,6 +13,18 @@
 				// using strInput.split('quick').join('sly') is commonly suggested for doing string replacement
 				// this will not work this exercise though, as the matching is required to be case insensitive
 
+				var searchMaskQuick = "quick";
+				var regExQ = new RegExp(searchMaskQuick, "ig");
+				var replaceMaskSly = "sly";
+
+				var searchMaskLazy = "lazy";
+				var regExL = new RegExp(searchMaskLazy, "ig");
+				var replaceMaskSharp = "sharp";
+
+				strInput = strInput.replace(regExQ, replaceMaskSly);
+				strInput = strInput.replace(regExL, replaceMaskSharp);
+
+				
 				return strInput;
 			};
 
