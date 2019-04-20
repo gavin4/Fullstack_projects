@@ -56,6 +56,49 @@
 
 		<script type="text/javascript">
 			// place the javascript code that selects the cells and applies the appropriate colors here
+			$("tbody").find("#try_children")
+			.css({
+				color: "#F00"
+			});
+
+			$("tbody > tr:nth-child(2)").find("#try_siblings").siblings()
+			.css({
+				color: "#0F0"
+			});
+			
+			$("tbody > tr:nth-child(3)").find("#try_prev").prev()
+			.css({
+				color: "#00F"
+			});
+
+			$("tbody > tr > td.try_eq").eq(0)
+			.css({
+				color: "#F00"
+			});
+			$("tbody > tr > td.try_eq").eq(1)
+			.css({
+				color: "#0F0"
+			});
+			$("tbody > tr > td.try_eq").eq(2)
+			.css({
+				color: "#00F"
+			});
+			$("tbody > tr > td.try_eq").eq(3)
+			.css({
+				color: "#FF0"
+			});
+			$("tbody > tr > td.try_last_child:last-child")
+			.css({
+				color: "#F0F"
+			});
+			$("tbody > tr > td.try_nth_child:nth-child(1)")
+			.css({
+				color: "#0FF"
+			});
+			$("tbody > tr > td.try_nth_child:nth-child(3)")
+			.css({
+				color: "#0FF"
+			});
 		</script>
 	</body>
 </html>
