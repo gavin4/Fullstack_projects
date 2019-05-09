@@ -2,6 +2,48 @@
 
 var express = require('express'); // do not change this line
 
+var server = express();
+
+server.get('/',function(req, res){
+	res.status(200);
+	res.set({
+		'Content-Type': 'text/plain'
+	});
+	res.send('you have accessed the root');
+
+});
+
+server.get('/test/:parameter',function(req, res){
+	res.status(200);
+	res.set({
+		'Content-Type': 'text/plain'
+	});
+	res.send('you have accessed "' + req.params.parameter +'" within test');
+
+});
+
+server.get('/attributes',function(req, res){
+	res.status(200);
+	res.set({
+		'Content-Type': 'text/html'
+	});
+	var htmlStr = '<!DOCTYPE html><html><body><table border="1">';
+	for(var key in req.query)
+		htmlStr = htmlStr.concat('<tr><td>' + key  + '</td><td>' + req.query[key] + '</td></tr>');
+	htmlStr = htmlStr.concat('</table></body></html>');
+	res.send(htmlStr);
+
+});
+
+server.get('/unexpected',function(req, res){
+	res.status(200);
+	res.set({
+		'Content-Type': 'text/plain'
+	});
+	res.send('');
+
+});
+server.listen(process.env.PORT||8080);
 // http://localhost:8080/ should return 'you have accessed the root' in plain text
 
 // http://localhost:8080/test/hello should return 'you have accessed "hello" within test' in plain text
